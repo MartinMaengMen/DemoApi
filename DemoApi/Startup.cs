@@ -33,7 +33,7 @@ namespace DemoApi
         {
 
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
             );
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();

@@ -13,6 +13,10 @@ using Microsoft.Extensions.Logging;
 using Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Repository;
+using Repository.Implementation;
+using Service;
+using Service.Implementation;
 namespace DemoApi
 {
     public class Startup
@@ -31,6 +35,9 @@ namespace DemoApi
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ITeamRepository, TeamRepository>();
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddControllers();
             services.AddSwaggerGen(c =>

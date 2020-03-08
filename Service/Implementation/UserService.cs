@@ -1,18 +1,22 @@
-﻿using Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Repository.Context;
-using System.Linq;
-namespace Repository.Implementation
+using Domain;
+using Repository;
+namespace Service.Implementation
 {
-    public class UserRepository : IUserRepository
+    public class UserService : IUserService
     {
-        private ApplicationDbContext context;
-        public UserRepository(ApplicationDbContext context)
+        private IUserRepository userRepository;
+        public UserService(IUserRepository userRepository)
         {
-            this.context = context;
+            this.userRepository = userRepository;
         }
+        public User Authenticate(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Delete(int id)
         {
             throw new NotImplementedException();
@@ -20,16 +24,7 @@ namespace Repository.Implementation
 
         public IEnumerable<User> GetAll()
         {
-            var result = new List<User>();
-            try
-            {
-                result = context.Users.ToList();
-            }
-            catch(System.Exception)
-            {
-                throw;
-            }
-            return result;
+            return userRepository.GetAll();
         }
 
         public User GetById(int id)

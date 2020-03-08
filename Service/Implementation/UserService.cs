@@ -17,10 +17,6 @@ namespace Service.Implementation
             throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public IEnumerable<User> GetAll()
         {

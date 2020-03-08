@@ -8,7 +8,6 @@ namespace Repository
     {
         bool Save(T entity);
         bool Update(T entity);
-        bool Delete(int id);
         IEnumerable<T> GetAll();
         T GetById(int id);
     }

@@ -13,10 +13,6 @@ namespace Repository.Implementation
         {
             this.context = context;
         }
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public IEnumerable<User> GetAll()
         {

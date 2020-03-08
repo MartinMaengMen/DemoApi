@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace DemoApi.Controllers
 {
     [Route("api/[controller]")]
-    public class TeamController : Controller
+    [ApiController]
+    public class TeamController : ControllerBase
     {
         // GET: api/values
         [HttpGet]
@@ -34,12 +35,6 @@ namespace DemoApi.Controllers
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
         {
         }
     }

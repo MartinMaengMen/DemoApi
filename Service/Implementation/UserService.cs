@@ -25,12 +25,12 @@ namespace Service.Implementation
 
         public User GetById(int id)
         {
-            throw new NotImplementedException();
+            return userRepository.GetById(id);
         }
 
         public bool Save(User entity)
         {
-            throw new NotImplementedException();
+            return userRepository.Save(entity);
         }
 
         public bool Update(User entity)

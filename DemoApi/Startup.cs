@@ -38,6 +38,7 @@ namespace DemoApi
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ITeamRepository, TeamRepository>();
+            services.AddTransient<ITeamService, TeamService>();
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddControllers();
             services.AddSwaggerGen(c =>

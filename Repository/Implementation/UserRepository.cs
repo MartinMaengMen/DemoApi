@@ -21,7 +21,7 @@ namespace Repository.Implementation
             {
                 result = context.Users.ToList();
             }
-            catch(System.Exception)
+            catch(Exception)
             {
                 throw;
             }
@@ -30,12 +30,32 @@ namespace Repository.Implementation
 
         public User GetById(int id)
         {
-            throw new NotImplementedException();
+            var result = new User();
+            try
+            {
+                result = context.Users.Single(x => x.Id == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return result;
         }
 
         public bool Save(User entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                context.Add(entity);
+                context.SaveChanges();
+            }
+#pragma warning disable CA1031 // No capture tipos de excepción generales.
+            catch (Exception)
+#pragma warning restore CA1031 // No capture tipos de excepción generales.
+            {
+                return false;
+            }
+            return true;
         }
 
         public bool Update(User entity)
